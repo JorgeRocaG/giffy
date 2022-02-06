@@ -1,16 +1,22 @@
 import "./App.css";
-import GifList from "./components/GifList";
 import { Link, Route } from "wouter";
+import Home from "./pages/Home";
+import Detail from "./pages/Detail";
+import SearchResults from "./pages/SearchResults";
 
 function App() {
   return (
     <div className="App">
       <section className="App-content">
         <h1>Giffy</h1>
-        <Link href="/gif/pandas">Gifs de pandas</Link>
-        <Link href="/gif/axolotes">Gifs de axolotes</Link>
-        <Link href="/gif/pinguinos">Gifs de pinguinos</Link>
-        <Route path="/gif/:keyword" component={GifList} />
+
+        <Link to="/">
+          <img className="App-logo" alt="Giffy logo" src="/logo.svg" />
+        </Link>
+
+        <Route path="/" component={Home} />
+        <Route path="/search/:keyword" component={SearchResults} />
+        <Route path="/gif/:id" component={Detail} />
       </section>
     </div>
   );

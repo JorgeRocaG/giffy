@@ -1,4 +1,4 @@
-.Gif {
+.Gif-link {
   border: 1px solid #eee;
   border-radius: 6px;
   display: flex;
@@ -8,6 +8,6 @@
   text-decoration: none;
 }
 
-.Gif img {
+.Gif-link img {
   object-fit: contain;
 }

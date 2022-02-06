@@ -1,7 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import getGifs from "../services/getGifs";
-import Gif from "./Gif";
+import getGifs from "../../services/getGifs";
+import Gif from "../Gif/Gif";
+import Loader from "../Loader/Loader";
 
 export default function GifList({ params }) {
   const { keyword } = params;
@@ -17,7 +18,7 @@ export default function GifList({ params }) {
   }, [keyword]);
 
   if (loading) {
-    return <span>Cargando</span>;
+    return <Loader />;
   }
 
   return (
