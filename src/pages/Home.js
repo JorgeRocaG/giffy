@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "wouter";
+import useGifs from "../hooks/useGifs";
+import Loader from "../components/Loader/Loader";
+import GifList from "../components/GifList/GifList";
 
 const POPULAR_GIFS = ["pandas", "axolotes", "pingüinos"];
 
 export default function Home() {
   const [keyword, setKeyword] = useState("");
   const [path, pushLocation] = useLocation();
+
+  const { loading, gifs } = useGifs();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,6 +40,10 @@ export default function Home() {
           </li>
         ))}
       </ul>
+      <div>
+        <h2>Última búsqueda</h2>
+        {loading ? <Loader /> : <GifList gifs={gifs} />}
+      </div>
     </>
   );
 }
