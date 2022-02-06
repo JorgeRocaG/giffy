@@ -8,10 +8,11 @@ function App() {
   return (
     <div className="App">
       <section className="App-content">
-        <h1>Giffy</h1>
-
         <Link to="/">
-          <img className="App-logo" alt="Giffy logo" src="/logo.svg" />
+          <h1>
+            <img className="App-logo" alt="Giffy logo" src="/logo.svg" />
+            Giffy
+          </h1>
         </Link>
 
         <Route path="/" component={Home} />
