@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "wouter";
-import useGifs from "../hooks/useGifs";
-import Loader from "../components/Loader/Loader";
-import GifList from "../components/GifList/GifList";
-import Category from "../components/Category/Category";
-import TrendingSearches from "../components/TrendingSearches/TrendingSearches";
-
-const POPULAR_GIFS = ["pandas", "axolotes", "pingüinos"];
+import { useLocation } from "wouter";
+import useGifs from "hooks/useGifs";
+import Loader from "components/Loader/Loader";
+import GifList from "components/GifList/GifList";
+import TrendingSearches from "components/TrendingSearches/TrendingSearches";
 
 export default function Home() {
   const [keyword, setKeyword] = useState("");

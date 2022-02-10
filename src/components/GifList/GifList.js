@@ -1,5 +1,5 @@
 import React from "react";
-import Gif from "../Gif/Gif";
+import Gif from "components/Gif/Gif";
 import "./GifList.css";
 
 export default function GifList({ gifs }) {
