@@ -3,6 +3,8 @@ import { Link, useLocation } from "wouter";
 import useGifs from "../hooks/useGifs";
 import Loader from "../components/Loader/Loader";
 import GifList from "../components/GifList/GifList";
+import Category from "../components/Category/Category";
+import TrendingSearches from "../components/TrendingSearches/TrendingSearches";
 
 const POPULAR_GIFS = ["pandas", "axolotes", "pingüinos"];
 
@@ -32,17 +34,14 @@ export default function Home() {
         />
         <input type="submit" value="Buscar" />
       </form>
-      <h3 className="App-title">Los gifs más populares</h3>
-      <ul>
-        {POPULAR_GIFS.map((popularGif) => (
-          <li key={popularGif}>
-            <Link to={`/search/${popularGif}`}>Gifs de {popularGif}</Link>
-          </li>
-        ))}
-      </ul>
-      <div>
-        <h2>Última búsqueda</h2>
-        {loading ? <Loader /> : <GifList gifs={gifs} />}
+      <div className="App-main">
+        <div className="App-results">
+          <h3 className="App-title">Última búsqueda</h3>
+          {loading ? <Loader /> : <GifList gifs={gifs} />}
+        </div>
+        <div className="App-category">
+          <TrendingSearches />
+        </div>
       </div>
     </>
   );

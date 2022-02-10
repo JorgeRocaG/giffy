@@ -7,5 +7,16 @@ export default function SearchResults({ params }) {
   const { keyword } = params;
   const { loading, gifs } = useGifs({ keyword });
 
-  return <>{loading ? <Loader /> : <GifList gifs={gifs} />}</>;
+  return (
+    <>
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <h3 className="App-title">{decodeURI(keyword)}</h3>
+          <GifList gifs={gifs} />
+        </>
+      )}
+    </>
+  );
 }
