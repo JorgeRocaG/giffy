@@ -5,7 +5,7 @@ import "./Gif.css";
 export default function Gif({ id, title, url }) {
   return (
     <Link to={`/gif/${id}`} className="Gif-link">
-      <img alt={title} src={url} />
+      <img loading="lazy" alt={title} src={url} />
       <h4>{title}</h4>
     </Link>
   );

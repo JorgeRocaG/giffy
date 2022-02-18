@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 1em;
+  min-height: 100vh;
 }
 
 @media (min-width: 768px) {
