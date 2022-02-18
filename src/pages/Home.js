@@ -3,7 +3,7 @@ import { useLocation } from "wouter";
 import useGifs from "hooks/useGifs";
 import Loader from "components/Loader/Loader";
 import GifList from "components/GifList/GifList";
-import TrendingSearches from "components/TrendingSearches/TrendingSearches";
+import TrendingSearches from "components/TrendingSearches/LazyTrendingSearches";
 
 export default function Home() {
   const [keyword, setKeyword] = useState("");
