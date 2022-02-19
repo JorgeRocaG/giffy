@@ -1,13 +1,15 @@
 .Gif-link {
-  border: 3px solid #eee;
-  border-radius: 6px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  text-decoration: none;
+  display: block;
+  position: relative;
+}
+
+.Gif-link span {
+  position: absolute;
+  font-size: 0.875rem;
+  top: 0;
+  left: 0;
 }
 
 .Gif-link img {
-  height: 250px;
-  object-fit: cover;
+  width: 100%;
 }

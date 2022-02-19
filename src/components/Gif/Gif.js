@@ -6,7 +6,7 @@ export default function Gif({ id, title, url }) {
   return (
     <Link to={`/gif/${id}`} className="Gif-link">
       <img loading="lazy" alt={title} src={url} />
-      <h4>{title}</h4>
+      <span>{title}</span>
     </Link>
   );
 }

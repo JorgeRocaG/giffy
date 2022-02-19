@@ -1,18 +1,6 @@
 .GifList {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-gap: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0 1rem;
   min-height: 100vh;
-}
-
-@media (min-width: 768px) {
-  .GifList {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .GifList {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }
