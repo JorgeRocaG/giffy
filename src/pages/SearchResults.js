@@ -4,7 +4,7 @@ import Loader from "components/Loader/Loader";
 import useGifs from "hooks/useGifs";
 import useNearScreen from "hooks/useNearScreen";
 import debounce from "just-debounce-it";
-import useTitle from "hooks/useTitle";
+import useTitle from "hooks/useSEO";
 
 export default function SearchResults({ params }) {
   const { keyword } = params;
