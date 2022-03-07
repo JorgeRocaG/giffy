@@ -4,6 +4,7 @@ import Loader from "components/Loader/Loader";
 import useGifs from "hooks/useGifs";
 import useNearScreen from "hooks/useNearScreen";
 import debounce from "just-debounce-it";
+import useTitle from "hooks/useTitle";
 
 export default function SearchResults({ params }) {
   const { keyword } = params;
@@ -13,6 +14,13 @@ export default function SearchResults({ params }) {
     externalRef: loading ? null : externalRef,
     once: false,
   });
+
+  const title = gifs
+    ? `${gifs.length} resultados de ${keyword}`
+    : loading
+    ? "Cargando..."
+    : "";
+  useTitle({ title });
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const debounceHandleNextPage = useCallback(
