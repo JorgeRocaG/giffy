@@ -5,6 +5,7 @@ import Loader from "components/Loader/Loader";
 import GifList from "components/GifList/GifList";
 import TrendingSearches from "components/TrendingSearches/LazyTrendingSearches";
 import SearchForm from "components/SearchForm/SearchForm";
+import { Helmet } from "react-helmet";
 
 export default function Home() {
   const [, pushLocation] = useLocation();
@@ -19,6 +20,9 @@ export default function Home() {
 
   return (
     <>
+      <Helmet>
+        <title>Home | Giffy</title>
+      </Helmet>
       <SearchForm onSubmit={handleSubmit} />
       <div className="App-main">
         <div className="App-results">

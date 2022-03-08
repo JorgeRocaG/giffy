@@ -4,7 +4,7 @@ import Loader from "components/Loader/Loader";
 import useGifs from "hooks/useGifs";
 import useNearScreen from "hooks/useNearScreen";
 import debounce from "just-debounce-it";
-import useTitle from "hooks/useSEO";
+import { Helmet } from "react-helmet";
 
 export default function SearchResults({ params }) {
   const { keyword } = params;
@@ -20,7 +20,6 @@ export default function SearchResults({ params }) {
     : loading
     ? "Cargando..."
     : "";
-  useTitle({ title });
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const debounceHandleNextPage = useCallback(
@@ -41,6 +40,10 @@ export default function SearchResults({ params }) {
         <Loader />
       ) : (
         <>
+          <Helmet>
+            <title>{title}</title>
+            <meta name="description" content={title} />
+          </Helmet>
           <h3 className="App-title">{decodeURI(keyword)}</h3>
           <GifList gifs={gifs} />
           <div id="visor" ref={externalRef}></div>
