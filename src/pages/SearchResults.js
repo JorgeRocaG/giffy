@@ -45,7 +45,7 @@ export default function SearchResults({ params }) {
             <title>{title}</title>
             <meta name="description" content={title} />
           </Helmet>
-          <SearchForm />
+          <SearchForm initialKeyword={keyword} initialRating={rating} />
           <h3 className="App-title">{decodeURI(keyword)}</h3>
           <GifList gifs={gifs} />
           <div id="visor" ref={externalRef}></div>
