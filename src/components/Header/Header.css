@@ -1,0 +1,15 @@
+.App-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.App-header a {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.App-header a:hover {
+  text-decoration: underline;
+}
