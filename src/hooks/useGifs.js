@@ -13,12 +13,18 @@ export default function useGifs({ keyword, rating } = { keyword: null }) {
     keyword || localStorage.getItem("lastKeyword") || "animales";
 
   useEffect(() => {
+    let isMounted = true;
     setLoading(true);
+
     getGifs({ keyword: keywordToUse, rating }).then((gifs) => {
       setGifs(gifs);
-      setLoading(false);
+      if (isMounted) setLoading(false);
       localStorage.setItem("lastKeyword", keyword);
     });
+
+    return () => {
+      isMounted = false;
+    };
   }, [keyword, rating, keywordToUse, setGifs]);
 
   useEffect(() => {
