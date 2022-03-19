@@ -1,3 +1,14 @@
+.Gif {
+  position: relative;
+}
+
+.Gif-fav {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 1;
+}
+
 .Gif-link {
   display: block;
   position: relative;

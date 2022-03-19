@@ -2,12 +2,19 @@ import React from "react";
 import { Link } from "wouter";
 import "./Gif.css";
 
+import Fav from "components/Fav/Fav";
+
 function Gif({ id, title, url }) {
   return (
-    <Link to={`/gif/${id}`} className="Gif-link">
-      <img loading="lazy" alt={title} src={url} />
-      <span>{title}</span>
-    </Link>
+    <div className="Gif">
+      <div className="Gif-fav">
+        <Fav />
+      </div>
+      <Link to={`/gif/${id}`} className="Gif-link">
+        <img loading="lazy" alt={title} src={url} />
+        <span>{title}</span>
+      </Link>
+    </div>
   );
 }
 
