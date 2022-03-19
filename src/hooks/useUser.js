@@ -26,7 +26,7 @@ export default function useUser() {
     [setJWT]
   );
 
-  const fav = useCallback(({ id }) => {
+  const addFav = useCallback(({ id }) => {
     addFavService({ id, jwt })
       .then(setFavs)
       .catch((error) => {
@@ -40,7 +40,8 @@ export default function useUser() {
   }, [setJWT]);
 
   return {
-    fav,
+    addFav,
+    favs,
     isLogged: Boolean(jwt),
     isLoginLoading: state.loading,
     hasLoginError: state.error,

@@ -5,18 +5,24 @@ import "./Fav.css";
 import useUser from "hooks/useUser";
 
 export default function Fav({ id }) {
-  const { isLogged, fav } = useUser();
+  const { isLogged, addFav, favs } = useUser();
   const [, pushLocation] = useLocation();
+
+  const isFaved = favs.some((favId) => favId === id);
 
   const handleClick = () => {
     if (!isLogged) return pushLocation("/login");
-    fav({ id });
+    addFav({ id });
   };
+
+  const [label, emoji] = isFaved
+    ? ["Remove gif from favorites", "💔"]
+    : ["Add gif to favorites", "❤️"];
 
   return (
     <button className="Fav" onClick={handleClick}>
-      <span aria-label="Fav Gif" role="img">
-        ❤️
+      <span aria-label={label} role="img">
+        {emoji}
       </span>
     </button>
   );
