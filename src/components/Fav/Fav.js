@@ -5,11 +5,12 @@ import "./Fav.css";
 import useUser from "hooks/useUser";
 
 export default function Fav({ id }) {
-  const { isLogged } = useUser();
+  const { isLogged, fav } = useUser();
   const [, pushLocation] = useLocation();
 
   const handleClick = () => {
     if (!isLogged) return pushLocation("/login");
+    fav({ id });
   };
 
   return (

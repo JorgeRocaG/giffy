@@ -8,7 +8,7 @@ function Gif({ id, title, url }) {
   return (
     <div className="Gif">
       <div className="Gif-fav">
-        <Fav />
+        <Fav id={id} />
       </div>
       <Link to={`/gif/${id}`} className="Gif-link">
         <img loading="lazy" alt={title} src={url} />
