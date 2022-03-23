@@ -1,4 +1,4 @@
-const ENDPOINT = "https://deno-api-users-login.herokuapp.com";
+const ENDPOINT = process.env.REACT_APP_API_URL;
 
 export default function addFav({ id, jwt }) {
   return fetch(`${ENDPOINT}/favs/${id}`, {
