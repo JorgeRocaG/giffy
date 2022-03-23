@@ -4,15 +4,18 @@ import { useLocation } from "wouter";
 
 import "./Login.css";
 
-export default function Login() {
+export default function Login({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [, pushLocation] = useLocation();
   const { isLoginLoading, hasLoginError, login, isLogged } = useUser();
 
   useEffect(() => {
-    if (isLogged === true) pushLocation("/");
-  }, [isLogged, pushLocation]);
+    if (isLogged === true) {
+      pushLocation("/");
+      onLogin && onLogin();
+    }
+  }, [isLogged, pushLocation, onLogin]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
