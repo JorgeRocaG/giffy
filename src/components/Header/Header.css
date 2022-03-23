@@ -1,6 +1,7 @@
 .App-header {
   display: flex;
   justify-content: flex-end;
+  gap: 1rem;
 }
 
 .App-header a {
