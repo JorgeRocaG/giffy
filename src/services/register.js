@@ -7,12 +7,8 @@ export default function register({ username, password }) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ username, password }),
-  })
-    .then((res) => {
-      if (!res.ok) throw new Error("Response is not ok");
-      return res.json();
-    })
-    .then((res) => {
-      return true;
-    });
+  }).then((res) => {
+    if (!res.ok) throw new Error("Response is not ok");
+    return true;
+  });
 }
