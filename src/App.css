@@ -22,6 +22,11 @@ button {
   cursor: pointer;
 }
 
+button[disabled] {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
 a {
   color: #09f;
   font-size: 1.5rem;
