@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocation } from "wouter";
 
+import Button from "components/Button/Button";
 import useForm from "./hooks";
 
 const RATINGS = ["g", "pg", "pg-13", "r"];
@@ -34,13 +35,13 @@ function SearchForm({ initialKeyword = "", initialRating = RATINGS[0] }) {
         type="text"
         value={keyword}
       />
-      <input type="submit" value="Buscar" />
       <select onChange={handleChangeRating} value={rating}>
         <option disabled>Rating type</option>
         {RATINGS.map((rating) => (
           <option key={rating}>{rating}</option>
         ))}
       </select>
+      <Button>Buscar</Button>
       <p>{times}</p>
     </form>
   );

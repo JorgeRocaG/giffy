@@ -1,23 +1,21 @@
 import React from "react";
-import { Link } from "wouter";
-import "./Gif.css";
-
 import Fav from "components/Fav/Fav";
+import { Gif, GifFav, GifLink, GifImage, GifTitle } from "./styles";
 
-function Gif({ id, title, url }) {
+function GifComponent({ id, title, url }) {
   return (
-    <div className="Gif">
-      <div className="Gif-fav">
+    <Gif>
+      <GifFav>
         <Fav id={id} />
-      </div>
-      <Link to={`/gif/${id}`} className="Gif-link">
-        <img loading="lazy" alt={title} src={url} />
-        <span>{title}</span>
-      </Link>
-    </div>
+      </GifFav>
+      <GifLink to={`/gif/${id}`} className="Gif-link">
+        <GifImage loading="lazy" alt={title} src={url} />
+        <GifTitle>{title}</GifTitle>
+      </GifLink>
+    </Gif>
   );
 }
 
-export default React.memo(Gif, (prevProps, nextProps) => {
+export default React.memo(GifComponent, (prevProps, nextProps) => {
   return prevProps.id === nextProps.id;
 });

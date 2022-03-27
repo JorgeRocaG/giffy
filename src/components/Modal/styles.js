@@ -1,4 +1,6 @@
-.modal {
+import styled from "@emotion/styled";
+
+export const Modal = styled.div`
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(5px);
   position: fixed;
@@ -7,19 +9,20 @@
   bottom: 0;
   left: 0;
   z-index: 999;
-}
+`;
 
-.modal-wrapper {
+export const ModalWrapper = styled.div`
   border-radius: 8px;
-  background-color: #111;
+  background-color: #282c34;
   width: 300px;
   padding: 1rem;
   height: 60vh;
   margin: 10vh auto;
   position: relative;
-}
+  color: white;
+`;
 
-.modal button {
+export const ModalClose = styled.button`
   display: block;
   margin-bottom: 32px;
-}
+`;

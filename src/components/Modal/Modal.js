@@ -1,21 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./Modal.css";
+import { Modal, ModalWrapper, ModalClose } from "./styles";
 
-function Modal({ children, onClose }) {
+function ModalComponent({ children, onClose }) {
   return (
-    <div className="modal">
-      <div className="modal-wrapper">
-        <button onClick={onClose}>X</button>
+    <Modal>
+      <ModalWrapper>
+        <ModalClose onClick={onClose}>X</ModalClose>
         {children}
-      </div>
-    </div>
+      </ModalWrapper>
+    </Modal>
   );
 }
 
 export default function ModalPortal({ children, onClose }) {
   return ReactDOM.createPortal(
-    <Modal onClose={onClose}> {children}</Modal>,
+    <ModalComponent onClose={onClose}> {children}</ModalComponent>,
     document.getElementById("modal-root")
   );
 }

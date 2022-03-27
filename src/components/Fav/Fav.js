@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-import "./Fav.css";
 import useUser from "hooks/useUser";
 import Modal from "components/Modal/Modal";
 import Login from "components/Login/Login";
+import { FavComponent } from "./styles";
 
 export default function Fav({ id }) {
   const { isLogged, addFav, favs } = useUser();
@@ -30,11 +30,11 @@ export default function Fav({ id }) {
 
   return (
     <>
-      <button className="Fav" onClick={handleClick}>
+      <FavComponent onClick={handleClick}>
         <span aria-label={label} role="img">
           {emoji}
         </span>
-      </button>
+      </FavComponent>
       {showModal && (
         <Modal onClose={handleClose}>
           <Login onLogin={handleLogin} />

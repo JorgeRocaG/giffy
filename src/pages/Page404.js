@@ -1,6 +1,8 @@
+/** @jsxImportSource @emotion/react */
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Link } from "wouter";
+
+import Button from "components/Button/Button";
 
 export default function Page404() {
   const page404Gif =
@@ -11,13 +13,11 @@ export default function Page404() {
       <Helmet>
         <title>Error 404 | Giffy</title>
       </Helmet>
-      <div className="page-404">
+      <div>
         <h1>404</h1>
         <p>Ups... page not found</p>
         <img src={page404Gif} alt="Not found GIF" />
-        <Link className="btn" href="/">
-          Take me home
-        </Link>
+        <Button href="/">Take me home</Button>
       </div>
     </>
   );

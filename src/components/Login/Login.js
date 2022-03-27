@@ -1,10 +1,9 @@
 import useUser from "hooks/useUser";
 import React, { useState, useEffect } from "react";
 import { useLocation } from "wouter";
+import { Login, FormInput, FormLabel, FormSubmit } from "./styles";
 
-import "./Login.css";
-
-export default function Login({ onLogin }) {
+export default function LoginComponent({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [, pushLocation] = useLocation();
@@ -22,21 +21,22 @@ export default function Login({ onLogin }) {
     login({ username, password });
   };
 
+  //TODO: separar en componentes
   return (
     <>
       {isLoginLoading && <strong>Checking credentials...</strong>}
       {!isLoginLoading && (
-        <form className="form" onSubmit={handleSubmit}>
-          <label for="login-username">Username</label>
-          <input
+        <Login onSubmit={handleSubmit}>
+          <FormLabel for="login-username">Username</FormLabel>
+          <FormInput
             id="login-username"
             placeholder="username"
             onChange={(e) => setUsername(e.target.value)}
             value={username}
           />
 
-          <label for="login-password">Password:</label>
-          <input
+          <FormLabel for="login-password">Password:</FormLabel>
+          <FormInput
             id="login-password"
             type="password"
             placeholder="password"
@@ -44,8 +44,8 @@ export default function Login({ onLogin }) {
             value={password}
           />
 
-          <button>Login</button>
-        </form>
+          <FormSubmit>Login</FormSubmit>
+        </Login>
       )}
       {hasLoginError && <strong>Login error</strong>}
     </>

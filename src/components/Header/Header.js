@@ -1,10 +1,9 @@
 import React from "react";
 import { useRoute, Link } from "wouter";
-
 import useUser from "hooks/useUser";
-import "./Header.css";
+import { Header, HeaderLink } from "./styles";
 
-export default function Header() {
+export default function HeaderComponent() {
   const { isLogged, logout } = useUser();
   const [match] = useRoute("/login");
 
@@ -15,18 +14,18 @@ export default function Header() {
 
   const renderLoginButtons = ({ isLogged }) => {
     return isLogged ? (
-      <Link href="#" onClick={handleClick}>
+      <HeaderLink href="#" onClick={handleClick}>
         Logout
-      </Link>
+      </HeaderLink>
     ) : (
       <>
-        <Link to="/login">Login</Link>
-        <Link to="/register">Register</Link>
+        <HeaderLink to="/login">Login</HeaderLink>
+        <HeaderLink to="/register">Register</HeaderLink>
       </>
     );
   };
 
   const content = match ? null : renderLoginButtons({ isLogged });
 
-  return <header className="App-header">{content}</header>;
+  return <Header>{content}</Header>;
 }

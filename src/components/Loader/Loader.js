@@ -1,13 +1,13 @@
 import React from "react";
-import "./Loader.css";
+import { Loader, LoaderRippleWrapper, LoaderRipple } from "./styles";
 
-export default function Loader() {
+export default function LoaderComponent() {
   return (
-    <div className="Loader">
-      <div className="lds-ripple">
-        <div></div>
-        <div></div>
-      </div>
-    </div>
+    <Loader>
+      <LoaderRippleWrapper>
+        <LoaderRipple></LoaderRipple>
+        <LoaderRipple></LoaderRipple>
+      </LoaderRippleWrapper>
+    </Loader>
   );
 }
